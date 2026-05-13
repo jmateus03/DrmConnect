@@ -2,12 +2,14 @@ import { useEffect, useState } from "react";
 import { supabase } from "./supabase/supabase";
 import Problemas from "./components/Problemas";
 import RespostasProblemas from "./components/RespostasProblemas";
+import { envImagensStorage } from "./services/uploadImages";
 
 export default function App(){
   const [ problemas, setProblemas ] = useState([])
   const [ nome, setNome ] = useState("")
   const [ titulo, setTitulo ] = useState("")
   const [ descricao, setDescricao ] = useState("")
+  const [ img, setImg ] = useState(null)
 
    async function buscarProblemas(){
     const res = await supabase
@@ -18,30 +20,26 @@ export default function App(){
       alert("olha o console")
       console.error(res.error)
     } else{
-      console.log(res.data)
       setProblemas(res.data)
     }
   }
 
   async function criarProblema() {
-    const res = await supabase
-    .from('problemas')
-    .insert({
-      user: nome,
-      titulo,
-      description: descricao
-    })
-    if(res.error){
-      alert("deu bosta")
-      console.error(res.error)
-    }else{
-      alert("problemas enviado!")
-      setNome('')
-      setDescricao('')
-      setTitulo('')
+    try{
+      let imgUrlLocal = await envImagensStorage(img)
+      const res = await supabase
+      .from('problemas')
+      .insert({
+        user: nome,
+        titulo,
+        description: descricao,
+        imagens: imgUrlLocal
+      })
       buscarProblemas()
-    }
-  }
+      alert("problema enviado!")
+  }catch(error){
+    console.error(error)
+  }}
 
   useEffect(() => {
     buscarProblemas()
@@ -55,12 +53,14 @@ export default function App(){
         <input type="text" onChange={e => setNome(e.target.value)} placeholder="Nome De Usuário"/> <br />
         <input type="text" onChange={e => setTitulo(e.target.value)} placeholder="Titulo"/> <br />
         <textarea onChange={e => setDescricao(e.target.value)} placeholder="Descrição do Problema"></textarea> <br />
+        <span>para colocar imagens, baixe e clique no botão abaixo</span> <br />
+        <input type="file" accept="image/png,image/jpeg" onChange={e => setImg(e.target.files[0])} /><br />  
         <button onClick={criarProblema}>postar</button>
       </div>
 
       {problemas.map((item, index) =>(
         <div key={index} className="perguntas">
-        <Problemas user={item.user} titulo={item.titulo} conteudo={item.description}/> <br />
+        <Problemas user={item.user} titulo={item.titulo} conteudo={item.description} imgs={item.imagens}/> <br />
         <RespostasProblemas id={item.id} /> 
         </div>
       ))}

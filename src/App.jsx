@@ -1,7 +1,7 @@
 import { BrowserRouter, Route, Routes } from "react-router-dom"; // Removido o 'data' não utilizado
 import { useState, useEffect } from "react";
 import { supabase } from "./supabase/supabase";
-import Login from "./pages/login";
+import Login from "./pages/Login";
 import Cadastro from "./pages/Cadastro";
 import PrivateRoute from "./components/hooks/PrivateRouter";
 import ProblemasPagina from "./pages/ProblemasPagina";

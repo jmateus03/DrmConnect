@@ -1,7 +1,7 @@
-export default function Resposta({ resp }){
+export default function Resposta({ user, resp }){
     return (
         <>
-        <li>{resp}</li>
+        <li>{user}: {resp}</li>
         </>
     )
 }

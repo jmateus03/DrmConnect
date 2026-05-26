@@ -9,11 +9,18 @@ export default function EnviarResposta({ id, novaRes }){
             alert('coloque algo')
             return
         }
+        const { data: { user }, error } = await supabase.auth.getUser()
+        if(!user || error){
+            alert("usuário não logado!!")
+            return
+        }
+        const nomeDeUsuario = user.user_metadata?.full_name || user.user_metadata?.name ||  user.user_metadata?.display_name || "??"
         const res = await supabase
         .from('problemas_respostas')
         .insert({
             id_problema: id,
-            description
+            description,
+            user_responde: nomeDeUsuario
         })
 
         if(res.error){

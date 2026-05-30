@@ -14,20 +14,38 @@ export default function ProblemasPagina(){
   const [ img, setImg ] = useState(null)
   const [ fotoDoPerfil, setFotoDoPerfil ] = useState("")
   const textareaRef = useRef(null)
+  const [pagina, setPagina] = useState(0)
+  const [carregamento, setCarregamento] = useState(false)
+  const [temMais, setTemMais] = useState(true)
   const irPara = useNavigate()
 
-   async function buscarProblemas(){
+   async function buscarProblemas(estaPagina){
+    setCarregamento(true)
+
+    const comeca = estaPagina * 10
+    const ate = comeca + 10 - 1
+
     const res = await supabase
     .from('problemas')
     .select('*')
     .order('create_at', {ascending: false})
+    .range(comeca, ate)
 
     if(res.error){
       alert("olha o console")
       console.error(res.error)
     } else{
-      setProblemas(res.data)
+      if(res.data.length < 10){
+        setTemMais(false)
+      }
+      setProblemas((postAnteriores) => {
+        const postFiltro = res.data.filter(
+          (novoPost) => !postAnteriores.some((postAntigo) => postAntigo.id === novoPost.id)
+        )
+        return [...postAnteriores, ...postFiltro]
+      })
     }
+    setCarregamento(false)
   }
 
   async function desFazerLogin() {
@@ -67,8 +85,14 @@ export default function ProblemasPagina(){
     console.error(error)
   }}
 
+  const verMais = () => {
+    if(!carregamento && temMais){
+      setPagina((paginaAnterio) => paginaAnterio + 1)
+    }
+  }
+
   useEffect(() => {
-    buscarProblemas()
+    buscarProblemas(pagina)
     async function carregarUrlAvatar() {
       const url = await buscarImagem()
       if(url == null || !url ){
@@ -78,7 +102,7 @@ export default function ProblemasPagina(){
       }
     }
     carregarUrlAvatar()
-  }, [])
+  }, [pagina])
   
   useEffect(() =>{
     const textarea = textareaRef.current
@@ -113,6 +137,16 @@ export default function ProblemasPagina(){
         <RespostasProblemas id={item.id} curtida={item.curtidas}/> 
         </div>
       ))}
+
+      {carregamento && <p>Carregando posts...</p>}
+
+      {temMais && !carregamento && (
+        <button onClick={verMais} style={{ cursor: 'pointer' }}>
+          Carregar mais
+        </button>
+      )}
+
+      {!temMais && <p style={{ color: 'gray' }}>Você zerou essa aba!!</p>}
 
     </div>
   )

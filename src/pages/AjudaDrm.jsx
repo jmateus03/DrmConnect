@@ -9,24 +9,48 @@ export default function AjudaDrm(){
     const [descricao, setDescricao] = useState("")
     const [perguntas, setPerguntas] = useState([])
     const [imgUrl, setImgUrl] = useState("")
+    const [pagina, setPagina] = useState(0)
+    const [carregamento, setCarregamento] = useState(false)
+    const [temMais, setTemMais] = useState(true)
     const irPara = useNavigate()
 
-    async function buscarPerguntas() {
+    async function buscarPerguntas(estaPagina) {
+        setCarregamento(true)
+
+        const comeca = estaPagina * 10
+        const ate = comeca + 10 - 1        
         const res = await supabase
         .from("perguntas")
         .select("*")
+        .order("create_at", {ascending: false})
+        .range(comeca, ate)
 
         if(res.error){
             alert("algo deu errado " + res.error.message)
         } else{
-            setPerguntas(res.data)
+            if(res.data.length < 10){
+                setTemMais(false)
+            }
+            setPerguntas((perguntasAnteriores) => {
+                const perguntasFiltro = res.data.filter(
+                (novaPergunta) => !perguntasAnteriores.some((perguntatAntigo) => perguntatAntigo.id === novaPergunta.id)
+                )
+                return [...perguntasAnteriores, ...perguntasFiltro]
+            })
+        }
+        setCarregamento(false)
+    }
+
+    const verMais = () => {
+        if(!carregamento && temMais){
+        setPagina((paginaAnterio) => paginaAnterio + 1)
         }
     }
 
     useEffect(() => {
-        buscarPerguntas()
+        buscarPerguntas(pagina)
         setImgUrl(buscarImagem())
-    }, [perguntas])
+    }, [pagina])
 
     return(
         <div className="ajudadrm-tudo">
@@ -43,6 +67,13 @@ export default function AjudaDrm(){
                         <Pergunta titulo={item.titulo} user={item.user_nome} userAvatar={item.user_avatar}/>
                     </Link>
                 ))}
+                {carregamento ? (<p>Carregando posts...</p>) : temMais ? (
+                    <button onClick={verMais} style={{ cursor: 'pointer' }}>
+                    Carregar mais
+                    </button>
+                ) : (
+                    <p style={{ color: 'gray' }}>Você zerou essa aba!!</p>
+                )}
             </div>
         </div>
     )

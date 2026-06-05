@@ -1,0 +1,170 @@
+.inicial-tudo{
+    background: #020024;
+    background: linear-gradient(90deg, #020024 0%, #090979 100%, #00d4ff 35%);
+    color: white;
+}
+
+.navbar{
+    position: sticky;
+    z-index: 3;
+    top: 0;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 20px;
+    background-color: #000832;
+}
+
+.botoes-login{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 15px;
+}
+
+.login{
+    background-color: #100b76;
+    height: 40px;
+    width: 100px;
+    border-radius: 5px;
+    border: none;
+    
+}
+
+.login span{
+    font-size: 18px;
+    font-weight: 600;
+    font-family: 'poppins', 'ubuntu', sans-serif;
+    background: #007bff;
+    background: linear-gradient(90deg, #007bff 0%, #00bbff 30%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.cadastro{
+    height: 40px;
+    width: 100px;
+    font-size: 16px;
+    font-weight: 700;
+    border: none;
+    font-family: 'poppins', 'ubuntu', sans-serif;
+    background: #007bff;
+    background: linear-gradient(90deg, #007bff 0%, #00bbff 30%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.nome-logo{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+.nome-logo h1{
+    background: #007bff;
+    background: linear-gradient(90deg, #007bff 0%, #00bbff 30%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    font-size: 25px;
+
+    
+}
+
+.logoIcone{
+    height: 70px;
+}
+
+header{
+    display: flex;
+    align-items: center;
+    flex-direction: row;
+    justify-content: space-between;
+    padding: 0px 20px 0px 50px;
+    
+    background:
+        linear-gradient(
+            to bottom,
+            transparent 70%,
+            #070B59 100%
+        ),
+        url("./../assets/paginaInicial/background-borrado.png");
+
+    background-size: cover;
+    background-position: bottom right;
+    background-repeat: no-repeat;
+    
+
+    height: 450px;
+
+}
+
+.apresentacao{
+    display: flex;
+    flex-direction: column;
+    gap: 1px;
+}
+
+.titulo{
+    text-align: left;
+    font-size: 25px;
+}
+
+.textos h2{
+    font-weight: 500;
+    margin: -10px 0px 5px 0;
+}
+
+.textos h3{
+    font-weight: 400;
+    margin: 12px 0 20px 0;
+}
+
+.titulo span{
+    background: #007bff;
+    background: linear-gradient(90deg, #0061c8 0%, #00bbff 30%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent; 
+    text-shadow: 0 0 5px #0097ce;
+}
+
+.textos{
+    display: flex;
+    flex-direction: column;
+    text-align: left;
+    gap: 1px;
+}
+
+.comecar {
+    position: relative;
+    height: 50px;
+    width: 250px;
+    font-size: 18px;
+    background: transparent;
+    border: none;
+    border-radius: 8px;
+    color: white;
+    box-shadow: 0 0 5px #0097ce;
+    font-family: 'poppins', 'ubuntu', sans-serif;
+}
+
+.comecar::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    padding: 3px;
+    border-radius: 8px;
+
+    background: linear-gradient(
+        90deg,
+        #0061c8 0%,
+        #00bbff 30%
+    );
+
+    -webkit-mask:
+        linear-gradient(#fff 0 0) content-box,
+        linear-gradient(#fff 0 0);
+
+    -webkit-mask-composite: xor;
+    mask-composite: exclude;
+}

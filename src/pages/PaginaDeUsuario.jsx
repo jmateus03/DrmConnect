@@ -2,6 +2,8 @@ import { useState, useEffect } from "react";
 import { supabase } from "../supabase/supabase";
 import { useNavigate } from "react-router-dom";
 import { envImagensStorage } from "../services/uploadImages";
+import Sidebar from "../layout/Sidebar"
+import "../styles/perfil.css"
 /* ESSA É A PAGINA PARA USUARIO EDITAR SEU PERFIL */
 export default function PaginaDeUsuario(){
     const irPara = useNavigate()
@@ -65,7 +67,8 @@ export default function PaginaDeUsuario(){
         }
     }
     return(
-        <div>
+        <div className="container-perfil">
+            <Sidebar />
             {!mudarNome ? <img src={urlImg} /> : <input type="file" accept="image/png,image/jpeg" onChange={e => setImg(e.target.files[0])} />}
             {!mudarNome ? <span></span> : <button onClick={() => mudarFotoDePerfil()}>Mudar foto</button>}
             {!mudarNome ? <span><h1>{nome}</h1></span> : <input type="text" value={nome} onChange={e => setNome(e.target.value)}/>}

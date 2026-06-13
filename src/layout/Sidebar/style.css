@@ -1,0 +1,32 @@
+.container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: start;
+    max-height: 100%;
+    width: 240px;
+    padding-top: 10 0 10 10;
+    padding: 10px;
+    background-color: #000832;
+}
+
+img {
+    width: 150px;
+    height: 150px;
+}
+
+.btn-redirecionamentos {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: start;
+    padding-top: 0;
+    height: 70%;
+    gap: 30px;
+    padding: 10px;
+}
+
+.btn.ativo {
+    background: #4f46e5;
+    color: white;
+}

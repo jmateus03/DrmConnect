@@ -3,6 +3,8 @@ import { supabase } from "../supabase/supabase";
 import { Link, useNavigate } from "react-router-dom";
 import Pergunta from "../components/Pergunta";
 import { buscarImagem } from "../services/sercheAvatar";
+import Sidebar from "../layout/Sidebar"
+import "../styles/ajudaDRM.css"
 /* PAGINA DE PERGUNTAS / AJUDADRM */
 export default function AjudaDrm(){
     const [perguntas, setPerguntas] = useState([])
@@ -54,6 +56,7 @@ export default function AjudaDrm(){
     // na linha 64, quando ele clicar na pergunta ele vai ser jogar para o componente da pergunta, e la, ele vai puxa a pegunta com o id da url
     return(
         <div className="ajudadrm-tudo">
+            <Sidebar />
             <div className="enviar-pergunta">
                 <h3>Crie um pergunta</h3>
                 <button onClick={() => irPara("/criarpergunta")}>+</button>

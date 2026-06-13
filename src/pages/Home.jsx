@@ -7,6 +7,7 @@ import "./../styles/formPost.css"
 import { buscarImagem } from "../services/sercheAvatar";
 import PostComunidade from "../components/PostComunidade";
 import PostRespostas from "../components/PostRespostas";
+import Sidebar from "../layout/Sidebar"
 
 /* ESSA É A PAGINA DE COMUNIDADE */
 export default function Home(){
@@ -145,10 +146,7 @@ export default function Home(){
 
   return(
     <div className="tudo-comunidade">
-      <button onClick={() => irPara("/home/seuUser")}>Editar perfil</button>
-      <button onClick={() => irPara("/feedback")}>Feedback</button>
-      <button onClick={() => irPara("/perguntas")}>Ajuda Drm</button>
-      <button onClick={() => desFazerLogin()}>Logout</button>
+      <Sidebar />
 
       <div className="form-post">
         <div className="form-text">

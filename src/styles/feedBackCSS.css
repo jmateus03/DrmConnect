@@ -24,3 +24,9 @@
   color: #ffc107;
   text-shadow: 0 0 10px rgba(255, 193, 7, 0.5);
 }
+
+.container-feedback {
+  display: flex;
+  width: 100vw;
+  height: 100vh;
+}

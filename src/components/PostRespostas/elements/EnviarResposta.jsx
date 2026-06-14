@@ -9,7 +9,7 @@ export default function EnviarResposta({ idP, novaRes, quantidadeDeCurtidas }){
         if(localStorage.getItem(idP) == null){
             const enviarCurtida = await supabase.rpc('gerenciar_curtida', {
                 operacao: 'incrementar',
-                post_id_param: idP
+                id: idP
             })
             if(enviarCurtida.error){
                 console.error(enviarCurtida.error.message)
@@ -19,7 +19,7 @@ export default function EnviarResposta({ idP, novaRes, quantidadeDeCurtidas }){
         } else if(localStorage.getItem(idP) !== null){
             const desCurtir = await supabase.rpc('gerenciar_curtida', {
                 operacao: 'decrementar',
-                post_id_param: idP
+                id: idP
             })
             localStorage.removeItem(idP)
             setQntCurti(qntCurti - 1)            

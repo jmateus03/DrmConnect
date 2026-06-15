@@ -8,11 +8,36 @@
     height: 100vh;
 }
 
+.logarBTT{
+    width: 35%;
+    padding: 12px 6px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: white;
+    border-radius: 10px;
+    cursor: pointer;
+    background: linear-gradient(0.25turn, #7c3aed, #06b6d4);
+    margin: 5px 0;
+    transition: background-color 0.7s ease, transform 0.5s ease;
+}
+
 .form-login{
     display: flex;
     flex-direction: column;
     margin: 10px;
+    padding: 20px;
+    border-radius: 15px;
     text-align: center;
+    background-color: #0e0f2c;
+}
+
+.senhaArea input{
+    padding: 15px 15px;
+    border: white;
+    border-radius: 10px;
+    width: 350px;
+    background-color: #060f1e;
 }
 
 .form-login > input{
@@ -21,19 +46,43 @@
     border-radius: 10px;
     width: 350px;
     background-color: #060f1e;
-    margin-top: 15px;
-    margin-bottom: 5px;
 }
 
-.form-login > button{
+.cadastroLink{
     display: flex;
-    justify-content: center;
+    flex-direction: row;
     align-items: center;
-    padding: 12px 6px;
-    border: white;
-    border-radius: 10px;
+
+}
+
+.cadastroLinkBTT{
+    background:none;
+    border: none;
+    transform: none !important;
+    color: #0074aa;
+    box-shadow: none !important;
+    font-size: 16px;
+}
+
+.cadastroLinkBTT:hover{
     cursor: pointer;
-    background: linear-gradient(0.25turn, #7c3aed, #06b6d4);
-    margin: 5px 0;
-    transition: background-color 0.7s ease, transform 0.5s ease;
+}
+
+.senhaArea{
+    display: flex;
+    flex-direction: column;
+}
+
+.esqueciSenha{
+    width: 40%;
+    font-size: 11px;
+    background: none;
+    display: flex;
+    justify-content: left;
+    border: none;
+    cursor: pointer;
+}
+
+.esqueciSenha:hover{
+    cursor: pointer;
 }

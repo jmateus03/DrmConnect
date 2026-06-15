@@ -58,15 +58,18 @@ export default function Login(){
             <h1>Login</h1>
         
             <div className="form-login">
-                <input type="text" onChange={e => setEmail(e.target.value)} placeholder="Insira seu email"/><br />
+                <input type="text" onChange={e => setEmail(e.target.value)} placeholder="Insira seu email"/>
+                <div className="senhaArea">
                 <input type="password" onChange={e => setSenha(e.target.value)} placeholder="Insira sua senha"/> <br />
-              <button onClick={logar}>Logar</button> <br />
-                <button onClick={handleOAuthLogin}>Entrar com o google</button> <br />
-                <p>Não tem conta? crie!</p>
-                <button onClick={() => irPara("/cadastro")}>Cadastrar</button> 
-                <p>Esqueceu sua senha? redefinar</p>
-                <button onClick={() => resetSenha()}>Redefinir senha</button>
+                <button className="esqueciSenha" onClick={() => resetSenha()}>Esqueci minha senha</button>
+                </div>
+                <button className="logarBTT" onClick={logar}>Logar</button>
+                <div className="cadastroLink">
+                    <p>Não tem conta?</p>
+                    <button className="cadastroLinkBTT" onClick={() => irPara("/cadastro")}>Cadastre-se</button> 
+                </div>
             </div>
+                <button onClick={handleOAuthLogin}>Entrar com o google</button> <br />
         </div>
     )
 }

@@ -1,0 +1,167 @@
+.login-tudo{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: #15163F;
+    background-image: url("./../assets/background/backgroundCadastroLogin.png");
+    width: 100vw;
+    height: 100vh;
+}
+
+.logarBTT{
+    width: 35%;
+    padding: 12px 6px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 150px;
+    font-size: 18px;
+    border: white;
+    border-radius: 5px;
+    cursor: pointer;
+    background: linear-gradient(0.25turn, #7c3aed, #06b6d4);
+    margin: 5px 0;
+    transition: background-color 0.7s ease, transform 0.5s ease;
+    font-family: 'poppins' , 'ubuntu' , sans-serif;
+}
+
+.form-login{
+    display: flex;
+    flex-direction: column;
+    height: 310px;
+    margin: 10px;
+    justify-content: center;
+    width: 300px;
+    padding: 25px;
+    border-radius: 10px;
+    text-align: center;
+    background-color: #0e0f2c;
+}
+
+.informacoes input:focus{
+    outline: none;
+}
+.informacoes input{
+    padding: 15px 15px;
+    color: rgb(236, 236, 236);
+    border: none;
+    border-radius: 5px;
+    margin-bottom: 3px;
+    width: 280px;
+    background-color: #021536;
+    font-size: 15px;
+    font-family: 'poppins' , 'ubuntu' , sans-serif;
+}
+
+.botoes{
+    display: flex;
+    flex-direction: column;
+    margin: 35px 0px 0px 0px;
+    align-items: center;
+}
+
+.informacoes{
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    align-items: center;
+}
+
+.senhaArea input{
+    padding: 15px 15px;
+    color: rgb(236, 236, 236);
+    border-radius: 5px;
+    margin-bottom: 3px;
+    width: 280px;
+    background-color: #021536;
+}
+
+
+
+.cadastroLink{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+
+}
+
+.cadastroLinkBTT{
+    background:none;
+    border: none;
+    transform: none !important;
+    color: #0099ff;
+    box-shadow: none !important;
+    font-size: 16px;
+}
+
+
+
+.cadastroLinkBTT:hover{
+    cursor: pointer;
+}
+
+
+
+.esqueciSenha{
+    width: 40%;
+    font-size: 11px;
+    background: none;
+    display: flex;
+    justify-content: left;
+    color: #0099ff;
+    border: none;
+}
+
+.esqueciSenha:hover{
+    cursor: pointer;
+    transform: none !important;
+    box-shadow: none !important;
+}
+
+.contaAlt{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+}
+
+.logoName{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    margin: 0px 12px 6px 0;
+}
+
+.logoName img{
+    height: 75px;
+    width: revert-layer;
+    margin: 8px -10px 0 0px;
+}
+
+.contaAlt img{
+    height: 35px;
+    width: 35px;
+    border-radius: 10px;
+}
+
+.contaAlt button{
+    background: none;
+    border: none;
+}
+
+.contaAlt button:hover{
+    box-shadow: none !important;
+    transform: none !important;
+    cursor: pointer;
+}
+
+.logoName h1{
+    background: #007bff;
+    background: linear-gradient(90deg, #007bff 0%, #00bbff 30%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    height: 33px;
+    margin: 19px 0px 0px 6px;
+}

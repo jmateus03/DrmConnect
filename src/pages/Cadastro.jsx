@@ -1,7 +1,9 @@
 import { useState } from "react"
 import { useNavigate } from "react-router-dom"
 import { supabase } from "../supabase/supabase"
-import "../styles/LoginCadastro.css"
+import Logo from "./../assets/logo/logo-icone.png"
+import GoogleIcon from "./../assets/loginCadastro/icones/googleIcon.jpg"
+import "./../styles/cadastro.css"
 /* auto explicativo tbm */
 export default function Cadastro(){
     const [ userName, setUserName ] = useState("")
@@ -46,19 +48,29 @@ export default function Cadastro(){
     };
     return(
         <div className="cadastro-tudo">
-            <h1>Cadastro</h1>
+            <div className="logoName">
+                <img src={Logo} alt="logoDrmConnect" />
+                <h1>Cadastro</h1>
+            </div>
 
             <div className="form-cadastro">
-                <input type="text" placeholder="Nome de Usuário" onChange={e => setUserName(e.target.value)}/> <br />
-                <input type="text" placeholder="Email" onChange={e => setEmail(e.target.value)} /> <br />
-                <input type="text" placeholder="Senha" onChange={e => setSenha(e.target.value)}/> <br />
-                <button onClick={() => cadastrar()}>Cadastrar</button>
+                <div className="informacoesCadastro">
+                    <input type="text" placeholder="Nome de Usuario" onChange={e => setUserName(e.target.value)}/> <br />
+                    <input type="text" placeholder="Email" onChange={e => setEmail(e.target.value)} /> <br />
+                    <input type="text" placeholder="Senha" onChange={e => setSenha(e.target.value)}/> <br />
+                </div>
+                <div className="botoesCadastro">
+                    <button className="cadastroBTT" onClick={() => cadastrar()}>Cadastrar</button>
+                    <div className="loginLink">
+                        <p>Já tem conta?</p> <br />
+                        <button className="loginLinkBTT" onClick={() => irPara("/login")}>Logar</button>
+                    </div>
+                </div>
+            </div>
+            <div className="contaAlt">
                 <button  onClick={() => handleOAuthLogin("google")}>
-                    cadastrar com o google
+                    <img src={GoogleIcon} alt="icone do google" />
                 </button>
-                   <p>ja tem conta? entre</p> <br />
-            
-                <button onClick={() => irPara("/login")}>logar</button>
             </div>
         </div>
     )

@@ -33,7 +33,6 @@ export default function CriarPergunta(){
         })
         if(res.error) return console.error(res.error.message);
         // se a pergunta for criada, ele volta para a aba perguntas/ajuda drm
-        alert("pergunta Criada!")
         irPara("/perguntas")
     }
     // mesmo sitema usado no ProblemasPagina.jsx (explicação mais detalhada la)

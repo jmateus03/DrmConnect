@@ -50,7 +50,6 @@ export default function EnviarResposta({ idP, novaRes, quantidadeDeCurtidas }){
         if(res.error){
             console.log(res.error)
         } else{
-            alert("deu bom")
             novaRes()
             setDescription('')
         }

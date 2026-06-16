@@ -106,7 +106,6 @@ export default function Home(){
         // limpa inputs
         setImg(null)
         setDescricao("")
-        alert("problema enviado!")
       }
 
 

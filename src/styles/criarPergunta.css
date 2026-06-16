@@ -24,14 +24,13 @@
 .barraEsquerda {
     width: 15%;
     margin-top: 20px;
-    color: white;
+    margin-right: 5px;
 }
 
 .barraDireita {
     width: 15%;
     margin-top: 20px;
-    color: white;
-    border: none;
+    margin-left: 5px;
 }
 
 .criarPergunta > h1 {

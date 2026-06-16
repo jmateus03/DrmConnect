@@ -49,7 +49,29 @@ export default function CriarPergunta(){
         <div className="criarPergunta">
                 <h1>Criar Pergunta</h1>
             <div className="barraLogo">
-                <span className="barraEsquerda"><hr /></span><MessageCircleMore size={50}/><span className="barraDireita"><hr /></span>
+    <svg width="0" height="0">
+        <defs>
+          <linearGradient id="grad" x1="0%" y1="0%" x2="100%" y2="100%">
+            <stop offset="0%" stopColor="#7c3aed" />
+            <stop offset="100%" stopColor="#06b6d4" />
+          </linearGradient>
+        </defs>
+    </svg>
+     <svg
+        width="90"
+        height="90"
+        style={{
+          position: "absolute",
+          top: 50,
+          left: 920,
+          pointerEvents: "none",
+        }}
+      >
+        <circle cx="34" cy="45" r="3" fill="url(#grad)" />
+        <circle cx="45" cy="45" r="3" fill="url(#grad)" />
+        <circle cx="56" cy="45" r="3" fill="url(#grad)" />
+      </svg>
+                <span className="barraEsquerda"><hr /></span><MessageCircleMore size={50} stroke="url(#grad)"/><span className="barraDireita"><hr /></span>
             </div>
             <div className="criarPergunta-entrada">
                 <input type="text" placeholder="insira o Titulo" value={titulo} onChange={e => setTitulo(e.target.value)}/> <br />

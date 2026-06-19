@@ -1,5 +1,7 @@
 import Descricao from "./elements/Descricao";
 import Titulo from "./elements/Titulo";
+import Zoom from 'react-medium-image-zoom';
+import 'react-medium-image-zoom/dist/styles.css';
 import '../../styles/postCard.css'
 
 export default function PostComunidade({ user, titulo, conteudo, imgs, avatar }){
@@ -10,7 +12,7 @@ export default function PostComunidade({ user, titulo, conteudo, imgs, avatar })
             </div>
             <div className="corpo-post">
                 <Descricao conteudo={conteudo} />
-                {imgs == null ? <span></span> : <img src={imgs} style={{width: "100px"}}/>} 
+                {imgs == null ? <span></span> : <Zoom ><img src={imgs} /></Zoom>} 
             </div>
         </div>
     )

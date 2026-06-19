@@ -1,31 +1,29 @@
 .tudo-comunidade {
   display: flex;
   width: 100vw;
-  height: 100vh;
-  background-color: #15163F;
-  overflow: hidden;
+  min-height: 100vh; 
+  background: url("./../assets/background/backgroundGeral.png");
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
 }
 
 .tudo-comunidade > :first-child {
   position: fixed;
   top: 0;
   left: 0;
-  height: 100vh;
-  width: 250px;
   flex-shrink: 0;
-  z-index: 1000;
 }
 
 .posts {
-  margin-left: 250px;
+  margin-left: 150px;
   flex: 1;
-  height: 100vh;
-  overflow-y: auto;
   padding: 20px;
   display: flex;
   flex-direction: column;
   align-items: center;
   scroll-behavior: smooth;
+  overflow: visible;
 }
 
 .form-post {
@@ -56,7 +54,7 @@
 }
 
 .form-text > textarea {
-  width: 100%;
+  width: 500px;
   border: none;
   border-radius: 10px;
   resize: none;
@@ -114,15 +112,15 @@
   background: rgba(255, 255, 255, 0.06);
 }
 
-.posts::-webkit-scrollbar {
-  width: 8px;
-}
-
-.posts::-webkit-scrollbar-thumb {
-  background: rgba(255, 255, 255, 0.2);
-  border-radius: 10px;
-}
-
-.posts::-webkit-scrollbar-thumb:hover {
-  background: rgba(255, 255, 255, 0.35);
+@media (max-width: 768px){
+  .posts{
+    margin-left: 0;
+    
+  }
+  .form-post{
+    width: 80%;
+  }
+  .form-text textarea{
+    width: 80%;
+  }
 }

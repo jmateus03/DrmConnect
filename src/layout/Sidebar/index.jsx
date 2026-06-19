@@ -4,8 +4,10 @@ import { useNavigate, useLocation } from "react-router-dom";
 import Logo from "../../assets/logo/logo.png"
 import { House, Handshake, UserRoundPen, Star, LogOut } from 'lucide-react';
 import { supabase } from "../../supabase/supabase"
+import { useState } from "react";
 
 export default function Sidebar() {
+    const [open, setOpen] = useState(false)
     const irPara = useNavigate()
     const location = useLocation()
 
@@ -14,7 +16,12 @@ export default function Sidebar() {
     }
 
     return (
-        <div className="container">
+        <>
+        <button
+        className="menu-btn"
+        onClick={() => setOpen(!open)}
+        >☰</button>
+        <div className={`container ${open ? "ativado" : ""}`}>
             <img src={Logo} alt="Logo" />
 
             <div className="btn-redirecionamentos">
@@ -54,5 +61,6 @@ export default function Sidebar() {
                 className="btn"
             />
         </div>
+        </>
     )
 }

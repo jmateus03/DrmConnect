@@ -84,9 +84,9 @@ export default function FeedbackInput(){
         </div>
         <Estrelas funcao={setEstrelas}/>
         <div className="enviarFeedback">
-        <button onClick={() => enviar()} style={{marginTop: "10px"}}><Send />Enviar Feedback</button>
-        </div>
-        </div>
+              <button onClick={() => enviar()} style={{marginTop: "10px"}}><Send />Enviar Feedback</button>
+            </div>
+          </div>
         </div>
         </>
     )

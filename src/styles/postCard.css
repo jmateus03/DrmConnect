@@ -15,6 +15,23 @@
   transition: transform 0.2s ease, box-shadow 0.2s ease;
 }
 
+.postContainer{
+  background: #000832;
+  border-radius: 14px;
+  max-width: 700px;
+  width: 100%;
+  margin: 20px auto 0 auto;
+  padding: 24px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  box-sizing: border-box;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.35);
+  border: 1px solid rgba(255, 255, 255, 0.06);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
 .content-post:hover {
   transform: translateY(-2px);
   box-shadow: 0 14px 35px rgba(0, 0, 0, 0.45);
@@ -62,9 +79,8 @@
 }
 
 .corpo-post img {
-  max-width: 100%;
-  width: auto;
-  max-height: 400px;
+  width: 70vw;
+  height: 70vh;
   border-radius: 12px;
   object-fit: cover;
   margin-top: 10px;

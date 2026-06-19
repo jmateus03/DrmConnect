@@ -51,7 +51,7 @@ export default function PerguntaClicada(){
             <div className="pergunta">
                 <PerguntaDetalhada user={pergunta.user_nome} user_avatar={pergunta.user_avatar} titulo={pergunta.titulo} descricao={pergunta.descricao} />
             </div>
-            <div className="resposta">
+            <div className="respostas">
                 <RespostasPergunta respostas={respostas} funcaoDeAtualizar={carregarDados} id={id}/>
             </div>
         </div>

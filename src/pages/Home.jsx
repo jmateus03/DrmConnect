@@ -106,7 +106,6 @@ export default function Home(){
         // limpa inputs
         setImg(null)
         setDescricao("")
-        alert("problema enviado!")
       }
 
 
@@ -152,7 +151,7 @@ export default function Home(){
         <div className="form-post">
           <div className="form-text">
             <img src={fotoDoPerfil} />
-            <textarea maxLength={200} ref={textareaRef} value={descricao} onChange={e => setDescricao(e.target.value)} placeholder="O que você está pensando hoje?" style={{width: "500px"}}></textarea>
+            <textarea maxLength={200} ref={textareaRef} value={descricao} onChange={e => setDescricao(e.target.value)} placeholder="O que você está pensando hoje?" ></textarea>
           </div>
 
           <div className="form-envio">
@@ -165,8 +164,10 @@ export default function Home(){
 
         {posts.map((item, index) =>(
           <div key={index} className="perguntas-home">
-          <PostComunidade user={item.user} titulo={item.titulo} conteudo={item.description} imgs={item.imagens} avatar={item.avatar}/> <br />
-          <PostRespostas id={item.id} curtida={item.curtidas}/> 
+            <div className="postContainer">
+              <PostComunidade user={item.user} titulo={item.titulo} conteudo={item.description} imgs={item.imagens} avatar={item.avatar}/> <br />
+              <PostRespostas id={item.id} curtida={item.curtidas}/>
+            </div> 
           </div>
         ))}
 

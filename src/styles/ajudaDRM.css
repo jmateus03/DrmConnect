@@ -1,8 +1,11 @@
 .ajudadrm-tudo {
-  display: flex;
-  width: 100vw;
-  height: 100vh;
-  background-color: #010a36;
+    display: flex;
+    width: 100vw;
+    height: 100vh;
+    background: url("./../assets/background/backgroundGeral.png");
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
 }
 
 .form-ajuda {
